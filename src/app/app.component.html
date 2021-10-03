@@ -1,0 +1,85 @@
+<mat-toolbar class="navbar-space">
+  <ng-container *ngIf="navState" >
+  <button mat-icon-button >
+    <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
+  </button>
+ 
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Cloudbankin</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>Gregory Clark</button>
+    </mat-menu>
+  </ng-container>
+  <ng-container *ngIf="!navState">
+    <div>
+      <button class="button-nav">CB</button>
+      <span>Cloudbankin</span>
+    </div>
+    <div>
+      <button class="button-nav button-nav-right">GC</button>
+      <span>Gregory Clark</span>
+    </div>
+  </ng-container>
+  
+  
+</mat-toolbar>
+
+<mat-horizontal-stepper labelPosition="bottom" >
+
+  <mat-step label="Browser Company info">
+    <div class="card">
+      <form [formGroup]="companyForm" class="my-box" (ngSubmit)="details()">
+        <h2> Borrower Company info</h2>
+        <div class="align1">
+          <label for="pname">Property Name</label>
+          <input type="text" id="pname" formControlName="propertyName" placeholder="Property name">
+        </div>
+
+        <div class="align1">
+          <label for="ptype">Property Type</label>
+          <select  id="ptype"  placeholder="Property Type" formControlName="propertyType" required>
+            <option value="" disabled selected>Property type</option>
+            <option value="Own House">Own House</option>
+            <option value="Rented">Rented</option>
+          </select>
+        </div>
+        <div class="align1">
+          <label for="units">Number of Units</label>
+          <select id="units"  placeholder="Number of Units" formControlName="noOfUnits" required>
+            <option value="" disabled selected>Number of Units</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <label for="country">Property Address</label>
+        <textarea name="country" id="country" style="height:100px" placeholder="Enter borrower name" formControlName="propertAddress"></textarea>
+        <label for="attachment">File Attachment</label>
+        <div class="attach">
+          <label for="fileAttach"><span style="color:#007bff;" >Browse</span> to Attach a file</label>
+          <input id="fileAttach" type="file" placeholder="Browse to attach file" formControlName="fileAttachment">
+        </div>
+        <div class="align-right">
+          <button class="button" style="color:black; background-color: white; border: 1px solid gainsboro;" matStepperPrevious>Back</button>
+          <button class="button" matStepperNext>Continue</button>
+        </div>
+      
+      </form>
+    </div>
+  </mat-step>
+
+  <mat-step label="Director info">
+    Step 2 content
+  </mat-step>
+
+  <mat-step label="Financial info">
+    You are now done.
+  </mat-step>
+
+  <mat-step label="Past Performance Details">
+    You are now done.
+  </mat-step>
+
+  <mat-step label="Document Upload">
+    You are now done.
+  </mat-step>
+</mat-horizontal-stepper>
