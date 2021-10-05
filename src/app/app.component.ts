@@ -11,6 +11,7 @@ export class AppComponent implements AfterViewInit{
   title = 'HabileUI';
   companyForm: FormGroup;
   navState:boolean =false;
+  visibleNav:boolean=false;
   constructor(private _formBuilder: FormBuilder,private observer:BreakpointObserver) {}
   ngAfterViewInit(): void {
    this.observer.observe('(max-width : 640px)').pipe(delay(0)).subscribe((data) =>{
@@ -43,5 +44,9 @@ export class AppComponent implements AfterViewInit{
   }
   details(){
     console.log(this.companyForm.value)
+  }
+  visible(){
+    this.visibleNav = !this.visibleNav;
+    console.log(this.visibleNav)
   }
 }

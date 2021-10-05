@@ -1,3 +1,23 @@
+  <div class="header">
+    <div class="container row header">
+      <button class="nav-toggle"  (click)="visibleNav = !visibleNav;">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav" [ngClass]="visibleNav ? 'nav--visible' : null ">
+        <ul class="nav__list nav_primary">
+          <li class="nav_items"><a href="#" class="nav_link"><button class="button-nav">CB</button></a></li>
+          <li class="nav_items"><span class="text-si">Cloudbankin</span> </li>
+        </ul>
+        <ul class="nav__list nav_secondary">
+          <li class="nav_items"><a href="#" class="nav_link"><button class="button-nav button-nav-right">GC</button></a></li>
+          <li class="nav_items"><span class="text-si">Gregory Clark</span></li>
+        </ul>
+      </nav>
+    </div> 
+  
+  </div>
+  
+<!-- 
 <mat-toolbar class="navbar-space">
   <ng-container *ngIf="navState" >
   <button mat-icon-button >
@@ -22,7 +42,7 @@
   </ng-container>
   
   
-</mat-toolbar>
+</mat-toolbar> -->
 
 <mat-horizontal-stepper labelPosition="bottom" >
 
